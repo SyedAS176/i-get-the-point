@@ -1,7 +1,8 @@
 #include <iostream>
+#include "src/point.hpp"
 
 #include "src/point.hpp"
 
 int main() {
-  std::cout << hello() << std::endl;
+    // Need to add driver functionality here later
 }
