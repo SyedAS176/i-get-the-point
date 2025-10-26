@@ -1,11 +1,52 @@
 #include "point.hpp"
 #include <cmath>
+#include <iostream>
 
-#include <string>
+Point::Point(double x, double y) {
+    // Defining (implementing the functionality) of the constructor
+    this->x = x;
+    this->y = y;
+}
 
-double distance(Point p1, Point p2) { // Return distance between two points
+// Defining getter methods
 
-    double d = sqrt( pow((p2.getX() - p1.getX()), 2) + pow((p2.getY() - p1.getY()), 2) );
+double Point::getX() {
+    return x;
+}
 
-    return d;
+double Point::getY() {
+    return y;
+}
+
+// Check if two points are equal
+bool Point::operator==(const Point& other) {
+    return (x == other.x && y == other.y);
+}
+
+// Check if two points are not equal
+bool Point::operator!=(const Point& other) {
+    return !(*this == other);
+}
+
+double Point::operator-(const Point& other) {
+    double dx = x - other.x;
+    double dy = y - other.y;
+    return sqrt(dx * dx + dy * dy);
+}
+
+// Find the midpoint between two points
+Point Point::operator/(const Point& other) {
+    double midX = (x + other.x) / 2.0;
+    double midY = (y + other.y) / 2.0;
+    return Point(midX, midY);
+}
+
+// Multiply a point by a constant (extra credit 1)
+Point Point::operator*(double scalar) {
+    return Point(x * scalar, y * scalar);
+}
+
+// Print the point in (x, y) format
+void Point::print() {
+    std::cout << "(" << x << ", " << y << ")";
 }

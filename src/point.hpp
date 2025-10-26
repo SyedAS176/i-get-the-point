@@ -1,22 +1,25 @@
-#include <string>
+#pragma once
 
 class Point {
 
 private:
-    int x; // x-coordinate
-    int y; // y-coordinate
+    double x; // x-coordinate
+    double y; // y-coordinate
 
 public:
-    Point (int x, int y) {
-        this->x = x;
-        this->y = y;
-    }
+    // This is the Point object's default constructor
+    Point (double x, double y);
 
-    int getX() { // Return x-coordinate
-        return this->x;
-    }
+    double getX(); // Return x-coordinate
+    double getY(); // Return y-coordinate
 
-    int getY() { // Return y-coordinate
-        return this->y;
-    }
+    // Operator overload declarations
+    double operator-(const Point& other); // Distance
+    bool operator==(const Point& other);  // Equal
+    bool operator!=(const Point& other);  // Not equal
+    Point operator/(const Point& other);  // Midpoint
+    Point operator*(double scalar);       // Multiply by constant (extra credit 1)
+
+    // Function to print the point
+    void print();
 };
