@@ -1,4 +1,5 @@
 #pragma once
+#include <iosfwd>
 
 class Point {
 
@@ -19,6 +20,7 @@ public:
     bool operator!=(const Point& other);  // Not equal
     Point operator/(const Point& other);  // Midpoint
     Point operator*(double scalar);       // Multiply by constant (extra credit 1)
+    friend std::ostream& operator<<(std::ostream &stream, Point &other);
 
     // Function to print the point
     void print();

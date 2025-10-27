@@ -59,3 +59,11 @@ TEST_CASE("Multiplication by a negative constant") {
     REQUIRE(result.getX() == (-3.0));
     REQUIRE(result.getY() == (-6.0));
 }
+
+// Test the output stream operator (<<)
+TEST_CASE("Point output stream operator works correctly") {
+    Point p(3.0, 4.0);
+    std::stringstream ss;
+    ss << p;
+    REQUIRE(ss.str() == "(3, 4)\n");
+}

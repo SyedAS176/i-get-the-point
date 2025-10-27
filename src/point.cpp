@@ -41,6 +41,10 @@ Point Point::operator/(const Point& other) {
     return Point(midX, midY);
 }
 
+std::ostream& operator<<(std::ostream &os, Point &other) {
+    return os << "(" << other.getX() << ", " << other.getY() << ")" << std::endl;
+}
+
 // Multiply a point by a constant (extra credit 1)
 Point Point::operator*(double scalar) {
     return Point(x * scalar, y * scalar);
